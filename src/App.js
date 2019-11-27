@@ -22,17 +22,17 @@ const App = () => {
         <img src={logo} className="App-logo" alt="logo" />
       </header>
       <div className="paramsBlock">       
-        <div>Passed params:</div> 
-        <Flipper flipKey={`${data.map(item => item.param).join('_')}`}>          
-          <ul className="list">
+        <div><b>Passed params:</b></div> 
+        <Flipper flipKey={`${data.map(item => item.param).join('_')}`}>         
+          
             {data.map(item => (
               <Flipped key={item.param} flipId={item.param} stagger>
-                <li>
-                  {item.param}: <i> {item.value}</i>
-                </li>
+                <div className="list">
+                  <div className="param">{item.param}:</div>
+                  <div className=""><i>{item.value}</i></div>
+                </div>
               </Flipped>
-            ))}            
-          </ul>
+            ))}    
         </Flipper>
       </div>
     </div>

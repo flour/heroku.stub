@@ -7,7 +7,8 @@ const parseLocation = () =>
   window.location.search
     .substr(1)
     .split("&")
-    .reduce((result, item) => [...result, { param: item.split('=')[0], value: decodeURIComponent(item.split('=')[1]) }], []);
+    .reduce((result, item) => [...result, { param: item.split('=')[0], value: decodeURIComponent(item.split('=')[1]) }], [])
+    .concat([{ param: 'Date', value: (new Date).toLocaleString('en-GB') }]);
 
 
 const App = () => {
@@ -31,8 +32,8 @@ const App = () => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </header>
-      <div className="paramsBlock">
-        <div><b>Passed params:</b></div>
+      <div className="card">
+        <div className="title">Passed params</div>
         <Flipper 
           flipKey={`${items.data.map(item => item.param).join('_')}`}
           staggerConfig={{
@@ -46,11 +47,12 @@ const App = () => {
             <Flipped key={`${item.param}-${i}`} flipId={item.param} stagger>
               <div className="list">
                 <div className="param">{item.param}:</div>
-                <div className=""><i>{item.value}</i></div>
+                <div className="dots"> </div>
+                <div className="value">{item.value}</div>
               </div>
             </Flipped>
           ))}
-        </Flipper>
+        </Flipper>        
       </div>
     </div>
   );

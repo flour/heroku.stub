@@ -33,17 +33,45 @@
   }
 }
 
-.paramsBlock {
-  width: 500px;
+.card {
+  padding: 1rem;
+  box-shadow: 0px 0px 28px 6px rgba(0,0,0,0.75);
+  background-color:#eee;
+  color: black;
+  border-radius: 5px 5px;
+  max-width: 500px;  
   margin: auto;
+  margin-top: 25px;
   text-align: justify;
 }
 
 .list {
-  display: flex;
+  display: flex;  
+}
+
+.card .title {  
+  font-weight: bolder;  
+  font-size: 22px;
+  text-align: center;  
+  text-transform: capitalize;  
+  margin: 10px 0px;
+  padding-bottom: 10px;
+  border-bottom: 2px dotted black;
 }
 
 .list > div.param {
   padding-right: 1rem;
-  width: 120px;
+  margin-bottom: 5px;
+}
+
+.list > div.dots {
+  border-bottom: 1px dotted black;  
+  flex: 1;
+  height: 17px;
+}
+
+.list > div.value {
+  font-style: italic;
+  text-align: right;
+  padding-left: 10px;
 }
